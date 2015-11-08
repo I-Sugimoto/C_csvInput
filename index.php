@@ -24,10 +24,9 @@ foreach ($test as $data)
 }
 
 $human = count($test) - 1;
+$salesAvg = $sum / count($test);
 echo "社員数は". $human. "名です。\n";
 echo "合計売上は". $sum. "です。\n";
-
-$salesAvg = $sum / count($test);
 echo "売上平均". $salesAvg. "です。\n";
 //3.ファイルを閉じる fclose()
 fclose($fp);
