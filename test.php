@@ -4,7 +4,10 @@ function string_filter($param1)
 {
   return is_string($param1);
 }
+// $arr = ["1","2"];
 
+// var_dump(string_filter($arr));
+// exit;
 function numeric_filter($param2) 
 {
   return is_numeric($param2);
@@ -23,10 +26,20 @@ if (!$fp = fopen($fileName, "r"))
 // 2.ファイルからデータを読み込む　fread()
 $test = file($fileName);
 mb_convert_variables("UTF-8", "SJIS", $test); 
-var_dump($test);
 
 $str = array_filter($test, "string_filter");
-echo $str;
+$count = count($str);
+
+var_dump($test);
+$num = array_filter($test, "numeric_filter");
+$salesSum = array_sum($num);
+
+var_dump($num);
+$salesAvg = $salesSum / count($num);
+
+echo "社員数は" . $count. "人です。\n";
+echo "売上平均は" . $salesSum. "です。\n";
+echo "売上平均は" . $salesAvg. "です。	\n";
 
 // $test = file($fileName);
 // mb_convert_variables("UTF-8", "SJIS", $test); 
